@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
+	<link rel="stylesheet" href="css/debug.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<style>
+
+		:root {
+			font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
+		}
+
+		#app {
+			display: flex;
+			justify-content: center; align-items: center;
+			width: 100vw; height: 100vh;
+			font-weight: 900; font-size: 8rem;
+			color: hsl(0, 0%, 100%);
+			background: hsl(240, 100%, 67%);
+			user-select: none;
+		}
+		#app2 {
+			display: flex;
+			justify-content: center; align-items: center;
+			width: 100vw; height: 100vh;
+			font-weight: 900; font-size: 8rem;
+			color: hsl(0, 0%, 100%);
+			background: hsl(240, 100%, 67%);
+			user-select: none;
+		}
+		#app3 {
+			display: flex;
+			justify-content: center; align-items: center;
+			width: 100vw; height: 100vh;
+			font-weight: 900; font-size: 8rem;
+			color: hsl(0, 0%, 100%);
+			background: hsl(240, 100%, 67%);
+			user-select: none;
+		}
+
+		img {
+			width: 8rem; height: 8rem;
+			vertical-align: calc(-0.12109375em);
+		}
+
+	</style>
+</head>
+<body>
+
+<div id="app">
+	<input type="text" v-model="message2"></input>
+	<p
+		v-html="
+					message1.slice(0, 7) +
+					message2 +
+					message1.slice(12)
+			"></p>
+</div>
+
+<div id="app2">
+	<p v-html="incendio(lumos(wizard))"></p>
+</div>
+
+<div id="app3">
+	<p
+		v-if="wizard == harry"
+		v-html="wizard + ' ' + hedwig"
+	></p>
+	<p
+		v-if="wizard == ron"
+		v-html="wizard + ' ' + scabbers"
+	></p>
+	<p
+		v-if="wizard == hermione"
+		v-html="wizard + ' ' + crookshanks"
+	></p>
+</div>
+
+<script>
+
+	"use strict"
+
+// emojify returns the corresponding emoji image
+	function emojify(name) {
+		var out = `<img src="/Content/emojis/` + name + `.png">`
+		return out
+	}
+
+// cast returns a spell (function) that decorates the wizard
+	function cast(emoji) {
+		if (!emoji) {
+			emoji = "¯\\_(ツ)_/¯"
+		}
+		return function (wizard) {
+			return emoji + wizard + emoji
+		}
+	}
+
+	var app = new Vue({
+		el: "#app",
+		data: {
+			message1: "Hello, World! " + emojify("celebration"),
+			message2: "Vue"
+		}
+	})
+
+	var app2 = new Vue({
+		el: "#app2",
+		data: {
+			wizard: emojify("wizard")
+		},
+		methods: {
+			lumos: cast(emojify("lumos")),
+			incendio: cast(emojify("incendio"))
+		}
+	})
+
+	var app3 = new Vue({
+		el: "#app3",
+		data: {
+			wizard      : "",
+			harry       : emojify("harry"      ),
+			hedwig      : emojify("hedwig"     ),
+			ron         : emojify("ron"        ),
+			scabbers    : emojify("scabbers"   ),
+			hermione    : emojify("hermione"   ),
+			crookshanks : emojify("crookshanks")
+		},
+		methods: {
+			wizards: function () {
+				return [
+					{ name: this.harry   , pet: this.hedwig      },
+					{ name: this.ron     , pet: this.scabbers    },
+					{ name: this.hermione, pet: this.crookshanks }
+				]
+			}
+		}
+	})
+
+	app3.wizard = app3.ron
+
+
+</script>
+
+</body>
+</html>
