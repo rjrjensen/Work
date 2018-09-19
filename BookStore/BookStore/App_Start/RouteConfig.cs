@@ -13,9 +13,10 @@ namespace BookStore
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute("BooksByCopyrightDate",
-                "books/copyright/{year}/{month}",
-                new { controller = "Books", action = "ByCopyrightDate" });
+            // Moving route information to BooksController
+            //routes.MapRoute("BooksByCopyrightDate",
+            //    "books/copyright/{year}/{month}",
+            //    new { controller = "Books", action = "ByCopyrightDate" });
 
             routes.MapRoute(
                 name: "Default",
