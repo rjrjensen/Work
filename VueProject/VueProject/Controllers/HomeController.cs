@@ -15,15 +15,26 @@ namespace VueProject.Controllers
 
         public ActionResult VueTutorial()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult JavaScriptTutorial()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Components()
+        {
+            return View();
+        }
+
+        public ActionResult Methods()
+        {
+            return View();
+        }
+
+        public ActionResult ControlFlow()
+        {
             return View();
         }
     }

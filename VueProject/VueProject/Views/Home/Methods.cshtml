@@ -14,25 +14,7 @@
 		}
 
 		#app {
-			display: flex;
-			justify-content: center; align-items: center;
-			width: 100vw; height: 100vh;
-			font-weight: 900; font-size: 8rem;
-			color: hsl(0, 0%, 100%);
-			background: hsl(240, 100%, 67%);
-			user-select: none;
-		}
-		#app2 {
-			display: flex;
-			justify-content: center; align-items: center;
-			width: 100vw; height: 100vh;
-			font-weight: 900; font-size: 8rem;
-			color: hsl(0, 0%, 100%);
-			background: hsl(240, 100%, 67%);
-			user-select: none;
-		}
-		#app3 {
-			display: flex;
+			display: flex; flex-direction: column;
 			justify-content: center; align-items: center;
 			width: 100vw; height: 100vh;
 			font-weight: 900; font-size: 8rem;
@@ -51,20 +33,18 @@
 <body>
 
 <div id="app">
-	<input type="text" v-model="message2"></input>
+	
+	
+	
 	<p
-		v-html="
-					message1.slice(0, 7) +
-					message2 +
-					message1.slice(12)
-			"></p>
-</div>
+		v-html="wizard + ' ' + (
+					wizard == harry    ? hedwig      :
+					wizard == ron      ? scabbers    :
+					wizard == hermione ? crookshanks : ''
+				)"
+	></p>
+	
 
-<div id="app2">
-	<p v-html="incendio(lumos(wizard))"></p>
-</div>
-
-<div id="app3">
 	<p
 		v-if="wizard == harry"
 		v-html="wizard + ' ' + hedwig"
@@ -77,6 +57,19 @@
 		v-if="wizard == hermione"
 		v-html="wizard + ' ' + crookshanks"
 	></p>
+	
+	<template v-if="true">
+		<p v-html="harry    + ' ' + hedwig     "></p>
+		<p v-html="ron      + ' ' + scabbers   "></p>
+		<p v-html="hermione + ' ' + crookshanks"></p>
+	</template>
+
+	<p
+		v-for="wizard in wizards()"
+		v-html="wizard.name + ' ' + wizard.pet"
+	></p>
+			
+
 </div>
 
 <script>
@@ -85,41 +78,12 @@
 
 // emojify returns the corresponding emoji image
 	function emojify(name) {
-		var out = `<img src="/Content/emojis/` + name + `.png">`
+		var out = `<img src="emojis/` + name + `.png">`
 		return out
-	}
-
-// cast returns a spell (function) that decorates the wizard
-	function cast(emoji) {
-		if (!emoji) {
-			emoji = "¯\\_(ツ)_/¯"
-		}
-		return function (wizard) {
-			return emoji + wizard + emoji
-		}
 	}
 
 	var app = new Vue({
 		el: "#app",
-		data: {
-			message1: "Hello, World! " + emojify("celebration"),
-			message2: "Vue"
-		}
-	})
-
-	var app2 = new Vue({
-		el: "#app2",
-		data: {
-			wizard: emojify("wizard")
-		},
-		methods: {
-			lumos: cast(emojify("lumos")),
-			incendio: cast(emojify("incendio"))
-		}
-	})
-
-	var app3 = new Vue({
-		el: "#app3",
 		data: {
 			wizard      : "",
 			harry       : emojify("harry"      ),
@@ -140,8 +104,7 @@
 		}
 	})
 
-	app3.wizard = app3.ron
-
+	app.wizard = app.hermione
 
 </script>
 
