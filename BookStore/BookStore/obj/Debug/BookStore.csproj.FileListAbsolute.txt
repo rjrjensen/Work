@@ -73,3 +73,5 @@ C:\Work\BookStore\BookStore\bin\Antlr3.Runtime.pdb
 C:\Work\BookStore\BookStore\obj\Debug\BookStore.csproj.CopyComplete
 C:\Work\BookStore\BookStore\obj\Debug\BookStore.dll
 C:\Work\BookStore\BookStore\obj\Debug\BookStore.pdb
+C:\Work\BookStore\BookStore\obj\Debug\BookStore.Migrations.InitialModel.resources
+C:\Work\BookStore\BookStore\obj\Debug\BookStore.csproj.GenerateResource.cache
