@@ -155,8 +155,11 @@ A:\Work\BookStore\BookStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatfo
 A:\Work\BookStore\BookStore\obj\Debug\BookStore.csprojAssemblyReference.cache
 A:\Work\BookStore\BookStore\obj\Debug\BookStore.csproj.CoreCompileInputs.cache
 A:\Work\BookStore\BookStore\obj\Debug\BookStore.csproj.CopyComplete
+<<<<<<< Updated upstream
 D:\Work\BookStore\BookStore\bin\EntityFramework.dll
 D:\Work\BookStore\BookStore\bin\EntityFramework.SqlServer.dll
 D:\Work\BookStore\BookStore\bin\EntityFramework.xml
 D:\Work\BookStore\BookStore\bin\EntityFramework.SqlServer.xml
 D:\Work\BookStore\BookStore\obj\Debug\BookStore.csprojResolveAssemblyReference.cache
+=======
+>>>>>>> Stashed changes
