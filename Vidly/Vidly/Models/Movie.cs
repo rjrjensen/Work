@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Vidly.Models
@@ -7,13 +6,22 @@ namespace Vidly.Models
     public class Movie
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+
         [Required]
-        public string Genre { get; set; }
+        [StringLength(255)]
+        public string Name { get; set; }
+
+        [Required]
+        public Genre Genre { get; set; }
+
+        public byte GenreId { get; set; }
+
         [Required]
         public DateTime ReleaseDate { get; set; }
+
         [Required]
         public DateTime DateAdded { get; set; }
+
         [Required]
         public int Inventory { get; set; }
     }
