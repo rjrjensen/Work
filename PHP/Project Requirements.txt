@@ -1,0 +1,20 @@
+database store things
+whatever i want
+cats dogs pets (multiple columns/fields)
+
+display all the data on a page
+edit data
+add to data (create an entry)
+delete data
+EXTRA: searching and paging
+
+Requirements:
+PHP
+No CSS frameworks/libraries
+No starter/boilerplate templates
+No smarty templates or any other templating agents (STRAIGHT HTML/PHP)
+PDO SQL driver
+MySQL backend (or MariaDB)
+AJAX!!! (loading gif included, no user input allowed while loading)
+Optional:
+JQuery
