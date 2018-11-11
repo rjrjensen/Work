@@ -22,7 +22,19 @@
 	</div>
 	<div class="form-group">
 		@Html.LabelFor(m => m.Customer.Birthday)
-		@Html.TextBoxFor(m => m.Customer.Birthday, "{0:d MMM yyyy}", new { @class = "form-control" })
+		<div class="form-group">
+			<div class='input-group date' id='datetimepicker'>
+				<input type='text' class="form-control" />
+				<span class="input-group-addon">
+					<span class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function () {
+				$('#datetimepicker').datetimepicker();
+			});
+		</script>
 	</div>
 	@*<div class="form-group">
 			@Html.LabelFor(m => m.Customer.Birthday)
@@ -45,11 +57,3 @@
 	@Html.HiddenFor(m => m.Customer.Id)
 	<button type="Submit" class="btn btn-primary">Save</button>
 }
-
-@*<script type="text/javascript">
-	$(function () {
-		$('datetimepicker').datetimepicker({
-			daysOfWeekDisabled: [0, 6]
-		});
-	});
-</script>*@
